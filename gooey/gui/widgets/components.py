@@ -193,7 +193,7 @@ class RadioGroup(object):
         self.btn_names = [wx.StaticText(self.panel, label=btn_data[
                                         'display_name'].title()) for btn_data in self.data]
         self.help_msgs = [wx.StaticText(self.panel, label=btn_data['help'].title())
-                                        for btn_data in self.data]
+                          for btn_data in self.data]
         self.option_strings = [btn_data['commands'] for btn_data in self.data]
 
         # box = wx.StaticBox(self.panel, -1, label=self.data['group_name'])

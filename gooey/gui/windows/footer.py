@@ -60,7 +60,7 @@ class AbstractFooter(wx.Panel):
             self, -1, image_repository.loading_icon)
 
         self.buttons = [self.cancel_button, self.start_button, self.stop_button,
-            self.close_button, self.restart_button, self.edit_button]
+                        self.close_button, self.restart_button, self.edit_button]
 
     def _init_pages(self):
         def config():

@@ -100,9 +100,9 @@ class ConfigPanel(ScrolledPanel, OptionReader):
         _f = lambda lst: [x for x in lst if x is not None]
         optional_args = _f([c.GetValue() for c in self.widgets.optional_args])
         required_args = _f([c.GetValue()
-                           for c in self.widgets.required_args if c.HasOptionString()])
+                            for c in self.widgets.required_args if c.HasOptionString()])
         position_args = _f([c.GetValue()
-                           for c in self.widgets.required_args if not c.HasOptionString()])
+                            for c in self.widgets.required_args if not c.HasOptionString()])
         if position_args:
             position_args.insert(0, "--")
         return ' '.join(chain(required_args, optional_args, position_args))

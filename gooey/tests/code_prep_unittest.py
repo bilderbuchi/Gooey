@@ -7,8 +7,7 @@ from gooey.python_bindings import code_prep
 def test_split_line():
     line = "parser = ArgumentParser(description='Example Argparse Program')"
     assert "parser" == code_prep.split_line(line)[0]
-    assert "ArgumentParser(description='Example Argparse Program')" == code_prep.split_line(line)[
-                           1]
+    assert "ArgumentParser(description='Example Argparse Program')" == code_prep.split_line(line)[1]
 
 
 def test_update_parser_varname_assigns_new_name_to_parser_var():
