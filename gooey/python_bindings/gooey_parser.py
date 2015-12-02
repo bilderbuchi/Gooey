@@ -3,10 +3,13 @@ from argparse import ArgumentParser, _SubParsersAction, _MutuallyExclusiveGroup
 
 
 class GooeySubParser(_SubParsersAction):
+
     def __init__(self, *args, **kwargs):
         super(GooeySubParser, self).__init__(*args, **kwargs)
 
+
 class GooeyMutuallyExclusiveGroup(_MutuallyExclusiveGroup):
+
     def __init__(self, parser, widgets, *args, **kwargs):
         self.parser = parser
         self.widgets = widgets
@@ -21,6 +24,7 @@ class GooeyMutuallyExclusiveGroup(_MutuallyExclusiveGroup):
 
 
 class GooeyParser(object):
+
     def __init__(self, **kwargs):
         self.__dict__['parser'] = ArgumentParser(**kwargs)
         self.widgets = {}

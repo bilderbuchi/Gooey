@@ -42,7 +42,6 @@ class AbstractFooter(wx.Panel):
 
         pub.subscribe(self.load_view, events.WINDOW_CHANGE)
 
-
     def _init_components(self):
         self.cancel_button      = self.button(i18n._('cancel'),  wx.ID_CANCEL,  event_id=int(events.WINDOW_CANCEL))
         self.stop_button        = self.button(i18n._('stop'),    wx.ID_OK,      event_id=int(events.WINDOW_STOP))
@@ -150,6 +149,3 @@ class Footer(AbstractFooter):
     def dispatch_click(self, event):
         pub.send_message(str(event.GetId()))
         event.Skip()
-
-
-

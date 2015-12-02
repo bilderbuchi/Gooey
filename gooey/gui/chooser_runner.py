@@ -6,6 +6,7 @@ from gooey.gui.widgets.choosers import CalendarChooser
 
 
 class MyFrame(wx.Frame):
+
     def __init__(self, parent):
         wx.Frame.__init__(self, parent, title="test", size=(320, 240))
         self.SetBackgroundColour('#ffffff')
@@ -20,6 +21,3 @@ if __name__ == '__main__':
     frame = MyFrame(None)
     frame.Show(True)
     app.MainLoop()
-
-
-

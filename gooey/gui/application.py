@@ -18,6 +18,7 @@ from gooey.gui.windows.advanced_config import ConfigPanel
 from gooey.python_bindings import config_generator, source_parser
 from gooey.gui import image_repository
 
+
 def main():
     parser = argparse.ArgumentParser(
         description='Gooey turns your command line programs into beautiful, user friendly GUIs')

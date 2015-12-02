@@ -30,6 +30,7 @@ welcome_message = \
                           |___/
 '''
 
+
 @Gooey(language='japanese', program_name=u'\u30d7\u30ed\u30b0\u30e9\u30e0\u4f8b')
 def arbitrary_function():
     desc = u"\u30b3\u30de\u30f3\u30c9\u30e9\u30a4\u30f3\u5f15\u6570\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044"
@@ -48,6 +49,7 @@ def arbitrary_function():
 
 def main(args):
     display_message()
+
 
 def here_is_smore():
     pass

@@ -55,6 +55,7 @@ RADIOGROUP = components2.RadioGroup({
 
 
 class TestPanel(ScrolledPanel):
+
     def __init__(self, parent, widget):
         ScrolledPanel.__init__(self, parent)
         self.SetupScrolling(scroll_x=False)
@@ -67,6 +68,7 @@ class TestPanel(ScrolledPanel):
 
 
 class MyFrame(wx.Frame):
+
     def __init__(self, parent, widget):
         wx.Frame.__init__(self, parent, title="test", size=(320, 240))
         self.SetBackgroundColour('#ffffff')
@@ -78,7 +80,6 @@ class MyFrame(wx.Frame):
 
     def close(self):
         self.Destroy()
-
 
 
 class TestComponents(unittest.TestCase):
@@ -98,14 +99,12 @@ class TestComponents(unittest.TestCase):
         self.get_widget().SetLabelText('value')
         self.assertEqual('-f value', self.get_value())
 
-
     def test_dropdown_returns_option_and_value_else_none(self):
         self.build_test_frame(DROPDOWN)
         self.assertTrue(self.get_value() == '')
         # grab first item from the combo box
         self.frame.get_widget()._GetWidget().SetSelection(0)
         self.assertEqual('-f one', self.get_value())
-
 
     def test_counter_returns_option_and_value_else_none(self):
         self.build_test_frame(COUNTER)
@@ -119,20 +118,17 @@ class TestComponents(unittest.TestCase):
         self.frame.get_widget()._GetWidget().SetSelection(4)
         self.assertEqual('-fffff', self.get_value())
 
-
     def test_checkbox_returns_option_if_checked_else_none(self):
         self.build_test_frame(CHECKBOX)
         self.assertTrue(self.get_value() == '')
         self.frame.get_widget()._GetWidget().SetValue(1)
         self.assertEqual('-f', self.get_value())
 
-
     def test_radiogroup_returns_option_if_checked_else_none(self):
         self.build_test_frame(RADIOGROUP)
         self.assertTrue(self.get_value() == '')
         # self.frame.get_widget()._GetWidget()[0].SetValue(1)
         # self.assertEqual('-f', self.get_value())
-
 
     def build_test_frame(self, widget):
         # self.app = wx.App(False)
@@ -145,12 +141,8 @@ class TestComponents(unittest.TestCase):
         return self.frame.get_widget().GetValue()
 
 
-
 if __name__ == '__main__':
     unittest.main()
-
-
-
 
     # a = {
     # 'required' : [
@@ -191,4 +183,3 @@ if __name__ == '__main__':
     #
     #   ]
     # }
-

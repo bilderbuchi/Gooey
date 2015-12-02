@@ -25,6 +25,7 @@ basic_config = {
 
 
 class FlatLayout(wx.Panel):
+
     def __init__(self, *args, **kwargs):
         self._build_spec = kwargs.pop('build_spec')
         super(FlatLayout, self).__init__(*args, **kwargs)
@@ -44,6 +45,7 @@ class FlatLayout(wx.Panel):
 
 
 class ColumnLayout(wx.Panel):
+
     def __init__(self, *args, **kwargs):
         self._build_spec = kwargs.pop('build_spec')
         super(ColumnLayout, self).__init__(*args, **kwargs)
@@ -85,8 +87,6 @@ class ColumnLayout(wx.Panel):
         return self.config_panels[self.active_panel].GetRequiredArgs()
 
 
-
 def get_layout_builder(layout_type):
     if layout_type == 'column':
         return
-

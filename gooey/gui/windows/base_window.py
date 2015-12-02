@@ -17,6 +17,7 @@ from gooey.gui.windows import footer, header, layouts
 
 
 class BaseWindow(wx.Frame):
+
     def __init__(self, build_spec):
         wx.Frame.__init__(self, parent=None, id=-1)
 
@@ -87,8 +88,6 @@ class BaseWindow(wx.Frame):
         pub.subscribe(self.myListener, "panelListener")
         pub.subscribe(self.load_view, events.WINDOW_CHANGE)
 
-
-
     def myListener(self, message):
         if message == 'fetch':
             del self.config_panel
@@ -108,7 +107,6 @@ class BaseWindow(wx.Frame):
 
     def GetOptionalArgs(self):
         return self.config_panel.GetOptionalArgs()
-
 
     def _init_pages(self):
 

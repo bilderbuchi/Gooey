@@ -30,6 +30,5 @@ def resize_bitmap(parent, _bitmap, target_height):
     return wx.StaticBitmap(parent, -1, wx.BitmapFromImage(image))
 
 
-
 if __name__ == '__main__':
     pass

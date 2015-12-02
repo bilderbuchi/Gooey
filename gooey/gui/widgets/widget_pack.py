@@ -49,6 +49,7 @@ class WidgetPack(with_metaclass(ABCMeta, object)):
 
 
 class BaseChooser(WidgetPack):
+
     def __init__(self, button_text=''):
         self.button_text = i18n._('browse')
         self.option_string = None
@@ -89,6 +90,7 @@ class BaseChooser(WidgetPack):
 
 
 class BaseFileChooser(BaseChooser):
+
     def __init__(self, dialog):
         BaseChooser.__init__(self)
         self.dialog = dialog
@@ -106,6 +108,7 @@ class BaseFileChooser(BaseChooser):
 
 
 class BaseMultiFileChooser(BaseFileChooser):
+
     def __init__(self, dialog):
         BaseFileChooser.__init__(self, dialog)
 
@@ -120,6 +123,7 @@ class BaseMultiFileChooser(BaseFileChooser):
 
 
 class MyMultiDirChooser(MDD.MultiDirDialog):
+
     def __init__(self, *args, **kwargs):
         super(MyMultiDirChooser, self).__init__(*args, **kwargs)
 
@@ -140,7 +144,9 @@ DirChooserPayload     = partial(BaseFileChooser, dialog=lambda parent: wx.DirDia
 DateChooserPayload    = partial(BaseFileChooser, dialog=CalendarDlg)
 MultiDirChooserPayload = partial(BaseMultiFileChooser, dialog=lambda parent: MyMultiDirChooser(parent, title="Select Directories", defaultPath=os.getcwd(), agwStyle=MDD.DD_MULTIPLE | MDD.DD_DIR_MUST_EXIST))
 
+
 class TextInputPayload(WidgetPack):
+
     def __init__(self, no_quoting=False):
         self.widget = None
         self.option_string = None
@@ -214,6 +220,7 @@ class DropdownPayload(WidgetPack):
 
 
 class CounterPayload(WidgetPack):
+
     def __init__(self):
         self.option_string = None
         self.widget = None
@@ -242,6 +249,7 @@ class CounterPayload(WidgetPack):
         arg = str(self.option_string).replace('-', '')
         repeated_args = arg * int(dropdown_value)
         return '-' + repeated_args
+
 
 def safe_default(data, default):
     # str(None) is 'None'!? Whaaaaat...?

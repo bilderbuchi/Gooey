@@ -16,6 +16,7 @@ PAD_SIZE = 10
 
 
 class FrameHeader(wx.Panel):
+
     def __init__(self, heading, subheading, **kwargs):
         wx.Panel.__init__(self, **kwargs)
         self.SetDoubleBuffered(True)
@@ -54,7 +55,6 @@ class FrameHeader(wx.Panel):
         self._running_img = self._load_image(image_repository.running_icon, 79)
         self._check_mark = self._load_image(image_repository.success_icon, height=75)
         self._error_symbol = self._load_image(image_repository.error_icon, height=75)
-
 
     def _do_layout(self):
         vsizer = wx.BoxSizer(wx.VERTICAL)
@@ -124,4 +124,3 @@ class FrameHeader(wx.Panel):
 
     def load_view(self, view_name=None):
         self.layouts.get(view_name, lambda: None)()
-

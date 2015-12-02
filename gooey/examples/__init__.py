@@ -27,6 +27,7 @@ See ya!
 
 '''
 
+
 def display_message():
     message = program_message.format('\n-'.join(sys.argv[1:])).split('\n')
     delay = old_div(1.8, len(message))
@@ -34,4 +35,3 @@ def display_message():
     for line in message:
         print(line)
         time.sleep(delay)
-

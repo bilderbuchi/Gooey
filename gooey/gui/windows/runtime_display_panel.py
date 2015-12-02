@@ -14,6 +14,7 @@ from gooey.gui.message_event import EVT_MSG
 
 
 class MessagePump(object):
+
     def __init__(self):
         # 		self.queue = queue
         self.stdout = sys.stdout
@@ -24,6 +25,7 @@ class MessagePump(object):
 
 
 class RuntimeDisplay(wx.Panel):
+
     def __init__(self, parent, build_spec, **kwargs):
         wx.Panel.__init__(self, parent, **kwargs)
 

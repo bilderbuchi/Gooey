@@ -16,6 +16,7 @@ def test_update_parser_varname_assigns_new_name_to_parser_var():
     result = code_prep.update_parser_varname('jarser', line)[0]
     assert result == expected
 
+
 def test_update_parser_varname_assigns_new_name_to_parser_var__multiline():
     lines = '''
 import argparse
@@ -51,5 +52,3 @@ parser.parse_args()
 
     assert 2 == len(list(code_prep.take_imports(lines)))
     assert 'parser.parse_args()' == list(code_prep.drop_imports(lines))[1]
-
-

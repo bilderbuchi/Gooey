@@ -10,6 +10,7 @@ from gooey.gui.widgets.calender_dialog import CalendarDlg
 
 
 class AbstractChooser(object):
+
     def __init__(self, data):
         self.data = data
 
@@ -88,8 +89,8 @@ class AbstractChooser(object):
         raise NotImplementedError
 
 
-
 class FileChooser(AbstractChooser):
+
     def __init__(self, data):
         AbstractChooser.__init__(self, data)
 
@@ -103,6 +104,7 @@ class FileChooser(AbstractChooser):
 
 
 class DirectoryChooser(AbstractChooser):
+
     def __init__(self, data):
         AbstractChooser.__init__(self, data)
 
@@ -116,6 +118,7 @@ class DirectoryChooser(AbstractChooser):
 
 
 class CalendarChooser(AbstractChooser):
+
     def __init__(self, data):
         AbstractChooser.__init__(self, data)
         self.button_text = 'Choose Date'
@@ -125,20 +128,3 @@ class CalendarChooser(AbstractChooser):
         dlg.ShowModal()
         if dlg.GetPath():
             self.text_box.SetLabelText(dlg.GetPath())
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

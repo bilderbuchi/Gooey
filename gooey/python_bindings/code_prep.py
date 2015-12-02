@@ -29,11 +29,14 @@ parser.add_argument('-T', '--tester', choices=['yes', 'no'])
 parser.add_argument(dest='paths', help='paths to folder(s) with source file(s) [default: %(default)s]', metavar='path', nargs='+')
 '''
 
+
 def take_imports(code):
     return takewhile(lambda line: 'import' in line, code)
 
+
 def drop_imports(code):
     return dropwhile(lambda line: 'import' in line, code)
+
 
 def split_line(line):
     # splits an assignment statement into varname and command strings
@@ -41,6 +44,7 @@ def split_line(line):
     # out: "parser", "ArgumentParser(description='Example Argparse Program"
     variable, instruction = line.split('=', 1)
     return variable.strip(), instruction.strip()
+
 
 def update_parser_varname(new_varname, code):
     # lines = source.split('\n')[1:]
@@ -55,8 +59,3 @@ def update_parser_varname(new_varname, code):
 
 if __name__ == '__main__':
     pass
-
-
-
-
-

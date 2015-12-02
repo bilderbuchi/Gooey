@@ -54,6 +54,7 @@ def main():
     args = my_cool_parser.parse_args()
     display_message()
 
+
 def here_is_smore():
     pass
 

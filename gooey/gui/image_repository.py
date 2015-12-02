@@ -18,11 +18,13 @@ _image_details = (
     ('error_icon', 'error_icon.png')
 )
 
+
 def init(image_dir):
     ''' initalize the images from the default directory path '''
     defaults = {variable_name: os.path.join(image_dir, filename)
                 for variable_name, filename in _image_details}
     globals().update(defaults)
+
 
 def patch_images(new_image_dir):
     '''
@@ -43,17 +45,3 @@ def patch_images(new_image_dir):
 
 default_dir = get_resource_path('images')
 init(default_dir)
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -54,6 +54,7 @@ def make_user_files(*filenames):
         with open(os.path.join(tempfile.gettempdir(), filename), 'w') as f:
             f.write('temp')
 
+
 def cleanup_temp(*filenames):
     for filename in filenames:
         os.remove(os.path.join(tempfile.gettempdir(), filename))

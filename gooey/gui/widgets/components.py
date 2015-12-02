@@ -7,6 +7,7 @@ from gooey.gui.widgets import widget_pack
 
 
 class BaseGuiComponent(object):
+
     def __init__(self, data, widget_pack):
         '''
         :param data: field info (title, help, etc..)
@@ -29,7 +30,6 @@ class BaseGuiComponent(object):
 
     def do_layout(self, parent):
         self.panel = wx.Panel(parent)
-
 
         self.title = self.createTitle(self.panel)
         self.help_msg = self.createHelpMsgWidget(self.panel)
@@ -111,6 +111,7 @@ class BaseGuiComponent(object):
 
 
 class CheckBox(BaseGuiComponent):
+
     def __init__(self, data, widget_pack=None):
         BaseGuiComponent.__init__(self, data, widget_pack)
 
@@ -170,6 +171,7 @@ class CheckBox(BaseGuiComponent):
 
 
 class RadioGroup(object):
+
     def __init__(self, data):
         self.panel = None
 
@@ -249,4 +251,3 @@ CommandField      = lambda data: BaseGuiComponent(data=data, widget_pack=widget_
 Dropdown          = lambda data: BaseGuiComponent(data=data, widget_pack=widget_pack.DropdownPayload())
 Counter           = lambda data: BaseGuiComponent(data=data, widget_pack=widget_pack.CounterPayload())
 MultiDirChooser   = lambda data: BaseGuiComponent(data=data, widget_pack=widget_pack.MultiDirChooserPayload())
-

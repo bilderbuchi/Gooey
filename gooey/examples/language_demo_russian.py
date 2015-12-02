@@ -44,6 +44,7 @@ def arbitrary_function():
 def main(args):
     display_message()
 
+
 def here_is_smore():
     pass
 

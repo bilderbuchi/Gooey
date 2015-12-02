@@ -37,6 +37,7 @@ VALID_WIDGETS = (
 class UnknownWidgetType(Exception):
     pass
 
+
 class UnsupportedConfiguration(Exception):
     pass
 
@@ -79,6 +80,7 @@ def process(parser, widget_dict):
         list(categorize(optional_actions, widget_dict)) + \
         list(map(build_radio_group, mutually_exclusive_groups))
 
+
 def categorize(actions, widget_dict, required=False):
     _get_widget = partial(get_widget, widgets=widget_dict)
     for action in actions:
@@ -96,34 +98,43 @@ def categorize(actions, widget_dict, required=False):
         else:
             raise UnknownWidgetType(action)
 
+
 def get_widget(action, widgets):
     supplied_widget = widgets.get(action.dest, None)
     type_arg_widget = 'FileChooser' if action.type == argparse.FileType else None
     return supplied_widget or type_arg_widget or None
 
+
 def is_required(action):
     '''_actions which are positional or possessing the `required` flag '''
     return not action.option_strings and not isinstance(action, _SubParsersAction) or action.required == True
 
+
 def has_required(actions):
     return [_f for _f in list(filter(is_required, actions)) if _f]
+
 
 def is_subparser(action):
     return isinstance(action, _SubParsersAction)
 
+
 def has_subparsers(actions):
     return list(filter(is_subparser, actions))
 
+
 def get_subparser(actions):
     return list(filter(is_subparser, actions))[0]
+
 
 def is_optional(action):
     '''_actions not positional or possessing the `required` flag'''
     return action.option_strings and not action.required
 
+
 def is_choice(action):
     ''' action with choices supplied '''
     return action.choices
+
 
 def is_standard(action):
     """ actions which are general "store" instructions.
@@ -139,14 +150,17 @@ def is_standard(action):
             and not isinstance(action, _HelpAction)
             and type(action) not in boolean_actions)
 
+
 def is_flag(action):
     """ _actions which are either storeconst, store_bool, etc.. """
     action_types = [_StoreTrueAction, _StoreFalseAction, _StoreConstAction]
     return any([isinstance(action, Action) for Action in action_types])
 
+
 def is_counter(action):
     """ _actions which are of type _CountAction """
     return isinstance(action, _CountAction)
+
 
 def build_radio_group(mutex_group):
     if not mutex_group:
@@ -186,6 +200,3 @@ def as_json(action, widget, required):
             'default': action.default
         }
     }
-
-
-

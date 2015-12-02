@@ -1,6 +1,7 @@
 import argparse
 import pytest
 
+
 @pytest.fixture
 def empty_parser():
     return argparse.ArgumentParser(description='description')

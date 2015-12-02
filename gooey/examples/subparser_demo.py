@@ -38,8 +38,6 @@ def main():
     curl_parser.add_argument('--ipv4', action="store_true",
                              help=' resolve names to IPv4 addresses only')
 
-
-
     # ########################################################
     siege_parser = subs.add_parser('siege', help='Siege is an http/https regression testing and benchmarking utility')
     siege_parser.add_argument('--get',
@@ -57,7 +55,6 @@ def main():
     siege_parser.add_argument('--message',
                               help='mark the log file with a separator',
                               type=int)
-
 
     # ########################################################
     ffmpeg_parser = subs.add_parser('ffmpeg', help='Siege is an http/https regression testing and benchmarking utility')
@@ -89,8 +86,6 @@ def main():
     parser.parse_args()
 
     display_message()
-
-
 
 
 if __name__ == '__main__':

@@ -8,6 +8,7 @@ import tempfile
 
 sys.path.append(os.path.dirname(__file__))
 
+
 def load(module_source):
     descriptor, tmpfilepath = tempfile.mkstemp(suffix='.py')
 
@@ -25,4 +26,3 @@ def load(module_source):
 
 if __name__ == '__main__':
     pass
-

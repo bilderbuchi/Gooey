@@ -6,6 +6,7 @@ from gooey.gui.util import wx_util
 
 
 class CalendarDlg(wx.Dialog):
+
     def __init__(self, parent):
         wx.Dialog.__init__(self, parent)
 
@@ -43,6 +44,3 @@ class CalendarDlg(wx.Dialog):
 
     def GetPath(self):
         return self.datepicker.GetValue().FormatISODate()
-
-
-

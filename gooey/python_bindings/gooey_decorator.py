@@ -23,6 +23,7 @@ from gooey.gui.util.freeze import get_resource_path
 
 IGNORE_COMMAND = '--ignore-gooey'
 
+
 def Gooey(f=None,
           advanced=True,
           language='english',

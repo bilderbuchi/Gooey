@@ -50,6 +50,7 @@ class CLIError(Exception):
     def __unicode__(self):
         return self.msg
 
+
 def main(argv=None):  # IGNORE:C0111
     '''Command line options.'''
 

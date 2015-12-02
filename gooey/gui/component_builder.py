@@ -9,6 +9,7 @@ is_checkbox = lambda widget: isinstance(widget, components.CheckBox)
 
 ComponentList = namedtuple('ComponentList', 'required_args optional_args')
 
+
 def build_components(widget_list):
     '''
     :param widget_list: list of dicts containing widget info (name, type, etc..)
@@ -24,10 +25,11 @@ def build_components(widget_list):
 
     return ComponentList(required_args, optional_args)
 
+
 def build_widget(widget_info):
     widget_class = getattr(components, widget_info['type'])
     return widget_class(data=widget_info['data'])
 
+
 def partition(collection, condition):
     return list(filter(condition, collection)), [x for x in collection if not condition(x)]
-

@@ -20,7 +20,6 @@ YES = 5103
 NO = 5104
 
 
-
 class Controller(object):
     '''
     Main controller for the gui.
@@ -116,4 +115,3 @@ class Controller(object):
         a = wx.MessageDialog(None, content, title, style)
         a.ShowModal()
         a.Destroy()
-

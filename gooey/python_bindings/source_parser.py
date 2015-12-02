@@ -61,19 +61,24 @@ def parse_source_file(file_name):
     )
     return ast_argparse_source
 
+
 def _openfile(file_name):
     with open(file_name, 'rb') as f:
         return f.read()
+
 
 def read_client_module(filename):
     with open(filename, 'r') as f:
         return f.readlines()
 
+
 def get_nodes_by_instance_type(nodes, object_type):
     return [node for node in walk_tree(nodes) if isinstance(node, object_type)]
 
+
 def get_nodes_by_containing_attr(nodes, attr):
     return [node for node in nodes if attr in walk_tree(node)]
+
 
 def walk_tree(node):
     yield node
@@ -81,9 +86,11 @@ def walk_tree(node):
     for key, value in d.items():
         if isinstance(value, list):
             for val in value:
-                for _ in walk_tree(val): yield _
+                for _ in walk_tree(val):
+                    yield _
         elif 'ast' in str(type(value)):
-            for _ in walk_tree(value): yield _
+            for _ in walk_tree(value):
+                yield _
         else:
             yield value
 
@@ -93,6 +100,7 @@ def convert_to_python(ast_source):
     Converts the ast objects back into human readable Python code
     """
     return list(map(codegen.to_source, ast_source))
+
 
 def get_assignment_name(lines):
     nodes = ast.parse(''.join(lines))
@@ -105,15 +113,19 @@ def lines_indented(line):
     unindented = re.compile("^[a-zA-Z0-9_@]+")
     return unindented.match(line) is None
 
+
 def not_at_main(line):
     return 'def main' not in line
+
 
 def not_at_parse_args(line):
     return 'parse_args(' not in line
 
+
 def get_indent(line):
     indent = re.compile("(\t|\s)")
     return ''.join(takewhile(lambda char: indent.match(char) is not None, line))
+
 
 def format_source_to_return_parser(source, cutoff_line, restart_line, col_offset, parser_name):
     top = source[:cutoff_line - 1]
@@ -126,6 +138,7 @@ def format_source_to_return_parser(source, cutoff_line, restart_line, col_offset
                   if '@gooey' not in line.lower())
 
     return ''.join(new_source)
+
 
 def extract_parser(modulepath, func_with_argparse):
     source = read_client_module(modulepath)
@@ -168,6 +181,3 @@ if __name__ == '__main__':
     #
     ast_source = parse_source_file(filepath)
     python_code = convert_to_python(list(ast_source))
-
-
-

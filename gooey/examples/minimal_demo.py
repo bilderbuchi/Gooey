@@ -2,6 +2,7 @@ from __future__ import print_function
 import argparse
 from gooey import Gooey
 
+
 @Gooey(dump_build_config=True)
 def main():
     parser = argparse.ArgumentParser(description='Process some integers.')

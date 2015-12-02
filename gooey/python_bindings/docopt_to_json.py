@@ -29,15 +29,14 @@ from __future__ import print_function
 # types?
 
 
-
 from docopt import docopt, Option, Argument
 
 
 class MyOption(Option):
+
     def __init__(self, *args, **kwargs):
         self.description = kwargs.pop('description', None)
         super(MyOption, self).__init__(*args, **kwargs)
-
 
     @classmethod
     def parse(class_, option_description):

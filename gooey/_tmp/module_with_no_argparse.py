@@ -7,6 +7,7 @@ from __future__ import print_function
 import time
 from gooey import Gooey
 
+
 def main():
     end = time.time() + 10
     while end > time.time():
@@ -16,4 +17,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-

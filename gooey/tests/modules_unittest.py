@@ -9,8 +9,7 @@ def fooey():
 
 '''
 
+
 def test_load_creates_and_imports_module_from_string_source():
     module = modules.load(module_source)
     assert 10 == module.fooey()
-
-
