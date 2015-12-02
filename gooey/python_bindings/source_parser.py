@@ -141,7 +141,7 @@ def extract_parser(modulepath, func_with_argparse):
     # not the end, so we look for the line no of the next node after main()
     # and use that as the end of the main() function.
     try:
-        restart_line = nodes.body[nodes.body.index(main_func)+1].lineno - 1
+        restart_line = nodes.body[nodes.body.index(main_func) + 1].lineno - 1
     except IndexError:
         restart_line = len(source)
 

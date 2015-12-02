@@ -61,7 +61,7 @@ def test_is_optional(complete_parser):
 
 
 def test_is_choice(empty_parser):
-    empty_parser.add_argument('--dropdown', choices=[1,2])
+    empty_parser.add_argument('--dropdown', choices=[1, 2])
     assert is_choice(get_action(empty_parser, 'dropdown'))
 
     empty_parser.add_argument('--storetrue', action='store_true')
@@ -84,7 +84,7 @@ def test_is_counter(empty_parser):
     empty_parser.add_argument('--count', action='count')
     assert is_counter(get_action(empty_parser, 'count'))
 
-    empty_parser.add_argument('--dropdown', choices=[1,2])
+    empty_parser.add_argument('--dropdown', choices=[1, 2])
     assert not is_counter(get_action(empty_parser, 'dropdown'))
 
 

@@ -2,7 +2,7 @@ from gooey.python_bindings.config_generator import *
 
 
 def test_create_from_parser(empty_parser):
-    build_spec = create_from_parser(empty_parser,'.')
+    build_spec = create_from_parser(empty_parser, '.')
     assert build_spec['manual_start'] == True
 
 

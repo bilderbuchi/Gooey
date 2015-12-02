@@ -109,7 +109,7 @@ def has_required(actions):
     return [_f for _f in list(filter(is_required, actions)) if _f]
 
 def is_subparser(action):
-    return isinstance(action,_SubParsersAction)
+    return isinstance(action, _SubParsersAction)
 
 def has_subparsers(actions):
     return list(filter(is_subparser, actions))

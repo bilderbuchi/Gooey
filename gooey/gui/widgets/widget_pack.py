@@ -138,7 +138,7 @@ FileSaverPayload      = partial(BaseFileChooser, dialog=build_dialog(wx.FD_SAVE,
 MultiFileSaverPayload = partial(BaseMultiFileChooser, dialog=build_dialog(wx.FD_MULTIPLE, False))
 DirChooserPayload     = partial(BaseFileChooser, dialog=lambda parent: wx.DirDialog(parent, 'Select Directory', style=wx.DD_DEFAULT_STYLE))
 DateChooserPayload    = partial(BaseFileChooser, dialog=CalendarDlg)
-MultiDirChooserPayload = partial(BaseMultiFileChooser, dialog=lambda parent: MyMultiDirChooser(parent, title="Select Directories", defaultPath=os.getcwd(), agwStyle=MDD.DD_MULTIPLE|MDD.DD_DIR_MUST_EXIST))
+MultiDirChooserPayload = partial(BaseMultiFileChooser, dialog=lambda parent: MyMultiDirChooser(parent, title="Select Directories", defaultPath=os.getcwd(), agwStyle=MDD.DD_MULTIPLE | MDD.DD_DIR_MUST_EXIST))
 
 class TextInputPayload(WidgetPack):
     def __init__(self, no_quoting=False):

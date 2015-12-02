@@ -9,7 +9,7 @@ def main():
     """Main"""
     bar = 'bar'
     parser = ArgumentParser(description='Desc')
-    parser.add_argument('bar', help=('bar'))    ##################
+    parser.add_argument('bar', help=('bar'))
     args = parser.parse_args()
     print(args)
     return True
