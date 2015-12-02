@@ -79,7 +79,8 @@ USAGE
 ''' % (program_shortdesc, str(__date__))
 
     # Setup argument parser
-    parser = ArgumentParser(description='Example Argparse Program', formatter_class=RawDescriptionHelpFormatter)
+    parser = ArgumentParser(description='Example Argparse Program',
+                            formatter_class=RawDescriptionHelpFormatter)
     parser.add_argument("filename", help="filename")
     parser.add_argument("-r", "--recursive", dest="recurse", action="store_true",
                         help="recurse into subfolders [default: %(default)s]")

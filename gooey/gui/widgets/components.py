@@ -132,7 +132,8 @@ class CheckBox(BaseGuiComponent):
         self.help_msg = self.createHelpMsgWidget(self.panel)
         self.help_msg.SetMinSize((0, -1))
 
-        self.help_msg.Bind(wx.EVT_LEFT_UP, lambda event: self.widget.SetValue(not self.widget.GetValue()))
+        self.help_msg.Bind(wx.EVT_LEFT_UP, lambda event: self.widget.SetValue(
+            not self.widget.GetValue()))
 
         vertical_container = wx.BoxSizer(wx.VERTICAL)
         vertical_container.Add(self.title)
@@ -189,8 +190,10 @@ class RadioGroup(object):
         self.panel = wx.Panel(parent)
 
         self.radio_buttons = [wx.RadioButton(self.panel, -1) for _ in self.data]
-        self.btn_names = [wx.StaticText(self.panel, label=btn_data['display_name'].title()) for btn_data in self.data]
-        self.help_msgs = [wx.StaticText(self.panel, label=btn_data['help'].title()) for btn_data in self.data]
+        self.btn_names = [wx.StaticText(self.panel, label=btn_data[
+                                        'display_name'].title()) for btn_data in self.data]
+        self.help_msgs = [wx.StaticText(self.panel, label=btn_data['help'].title())
+                                        for btn_data in self.data]
         self.option_strings = [btn_data['commands'] for btn_data in self.data]
 
         # box = wx.StaticBox(self.panel, -1, label=self.data['group_name'])
@@ -241,13 +244,23 @@ class RadioGroup(object):
         return self.radio_buttons
 
 
-FileChooser       = lambda data: BaseGuiComponent(data=data, widget_pack=widget_pack.FileChooserPayload())
-MultiFileChooser  = lambda data: BaseGuiComponent(data=data, widget_pack=widget_pack.MultiFileSaverPayload())
-DirChooser        = lambda data: BaseGuiComponent(data=data, widget_pack=widget_pack.DirChooserPayload())
-FileSaver         = lambda data: BaseGuiComponent(data=data, widget_pack=widget_pack.FileSaverPayload())
-DateChooser       = lambda data: BaseGuiComponent(data=data, widget_pack=widget_pack.DateChooserPayload())
-TextField         = lambda data: BaseGuiComponent(data=data, widget_pack=widget_pack.TextInputPayload())
-CommandField      = lambda data: BaseGuiComponent(data=data, widget_pack=widget_pack.TextInputPayload(no_qouting=True))
-Dropdown          = lambda data: BaseGuiComponent(data=data, widget_pack=widget_pack.DropdownPayload())
-Counter           = lambda data: BaseGuiComponent(data=data, widget_pack=widget_pack.CounterPayload())
-MultiDirChooser   = lambda data: BaseGuiComponent(data=data, widget_pack=widget_pack.MultiDirChooserPayload())
+FileChooser       = lambda data: BaseGuiComponent(
+    data=data, widget_pack=widget_pack.FileChooserPayload())
+MultiFileChooser  = lambda data: BaseGuiComponent(
+    data=data, widget_pack=widget_pack.MultiFileSaverPayload())
+DirChooser        = lambda data: BaseGuiComponent(
+    data=data, widget_pack=widget_pack.DirChooserPayload())
+FileSaver         = lambda data: BaseGuiComponent(
+    data=data, widget_pack=widget_pack.FileSaverPayload())
+DateChooser       = lambda data: BaseGuiComponent(
+    data=data, widget_pack=widget_pack.DateChooserPayload())
+TextField         = lambda data: BaseGuiComponent(
+    data=data, widget_pack=widget_pack.TextInputPayload())
+CommandField      = lambda data: BaseGuiComponent(
+    data=data, widget_pack=widget_pack.TextInputPayload(no_qouting=True))
+Dropdown          = lambda data: BaseGuiComponent(
+    data=data, widget_pack=widget_pack.DropdownPayload())
+Counter           = lambda data: BaseGuiComponent(
+    data=data, widget_pack=widget_pack.CounterPayload())
+MultiDirChooser   = lambda data: BaseGuiComponent(
+    data=data, widget_pack=widget_pack.MultiDirChooserPayload())

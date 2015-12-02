@@ -52,23 +52,27 @@ class ConfigPanel(ScrolledPanel, OptionReader):
             container.AddSpacer(30)
 
         if self.widgets.required_args:
-            container.Add(wx_util.h1(self, i18n._("required_args_msg")), 0, wx.LEFT | wx.RIGHT, PADDING)
+            container.Add(wx_util.h1(self, i18n._("required_args_msg")),
+                          0, wx.LEFT | wx.RIGHT, PADDING)
             container.AddSpacer(5)
             container.Add(wx_util.horizontal_rule(self), *STD_LAYOUT)
             container.AddSpacer(20)
 
-            self.CreateComponentGrid(container, self.widgets.required_args, cols=self._num_req_cols)
+            self.CreateComponentGrid(container, self.widgets.required_args,
+                                     cols=self._num_req_cols)
 
             container.AddSpacer(10)
 
         if self.widgets.optional_args:
             # container.AddSpacer(10)
-            container.Add(wx_util.h1(self, i18n._("optional_args_msg")), 0, wx.LEFT | wx.RIGHT, PADDING)
+            container.Add(wx_util.h1(self, i18n._("optional_args_msg")),
+                          0, wx.LEFT | wx.RIGHT, PADDING)
             container.AddSpacer(5)
             container.Add(wx_util.horizontal_rule(self), *STD_LAYOUT)
             container.AddSpacer(20)
 
-            self.CreateComponentGrid(container, self.widgets.optional_args, cols=self._num_opt_cols)
+            self.CreateComponentGrid(container, self.widgets.optional_args,
+                                     cols=self._num_opt_cols)
 
         self.SetSizer(container)
 
@@ -95,8 +99,10 @@ class ConfigPanel(ScrolledPanel, OptionReader):
         widgets contained in the panel"""
         _f = lambda lst: [x for x in lst if x is not None]
         optional_args = _f([c.GetValue() for c in self.widgets.optional_args])
-        required_args = _f([c.GetValue() for c in self.widgets.required_args if c.HasOptionString()])
-        position_args = _f([c.GetValue() for c in self.widgets.required_args if not c.HasOptionString()])
+        required_args = _f([c.GetValue()
+                           for c in self.widgets.required_args if c.HasOptionString()])
+        position_args = _f([c.GetValue()
+                           for c in self.widgets.required_args if not c.HasOptionString()])
         if position_args:
             position_args.insert(0, "--")
         return ' '.join(chain(required_args, optional_args, position_args))

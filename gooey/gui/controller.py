@@ -75,7 +75,8 @@ class Controller(object):
         self.run_client_code(command)
 
     def run_client_code(self, command):
-        p = subprocess.Popen(command, bufsize=1, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+        p = subprocess.Popen(command, bufsize=1, stdout=subprocess.PIPE,
+                             stderr=subprocess.PIPE, shell=True)
         pool = Pool(1)
         pool.apply_async(self.read_stdout, (p, self.process_result))
 
@@ -106,7 +107,8 @@ class Controller(object):
         return not any(req == '' for req in required_section)
 
     def success_dialog(self):
-        self.show_dialog(i18n._("execution_finished"), i18n._('success_message'), wx.ICON_INFORMATION)
+        self.show_dialog(i18n._("execution_finished"), i18n._(
+            'success_message'), wx.ICON_INFORMATION)
 
     def error_dialog(self, error_msg):
         self.show_dialog(i18n._('error_title'), i18n._('uh_oh').format(error_msg), wx.ICON_ERROR)

@@ -57,7 +57,8 @@ class CLIError(Exception):
 
 def main(argv=None):  # IGNORE:C0111
     '''Command line options.'''
-    raise NotImplementedError("This one isn't implemented yet. Please run any of the other examples. :) Sorry!")
+    raise NotImplementedError(
+        "This one isn't implemented yet. Please run any of the other examples. :) Sorry!")
     if argv is None:
         argv = sys.argv
     else:
@@ -84,7 +85,8 @@ USAGE
 
     try:
         # Setup argument parser
-        parser = ArgumentParser(description='Example Argparse Program', formatter_class=RawDescriptionHelpFormatter)
+        parser = ArgumentParser(description='Example Argparse Program',
+                                formatter_class=RawDescriptionHelpFormatter)
 
         parser.add_argument("filename", help="filename")
 

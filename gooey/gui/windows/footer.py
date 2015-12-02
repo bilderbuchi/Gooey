@@ -43,16 +43,24 @@ class AbstractFooter(wx.Panel):
         pub.subscribe(self.load_view, events.WINDOW_CHANGE)
 
     def _init_components(self):
-        self.cancel_button      = self.button(i18n._('cancel'),  wx.ID_CANCEL,  event_id=int(events.WINDOW_CANCEL))
-        self.stop_button        = self.button(i18n._('stop'),    wx.ID_OK,      event_id=int(events.WINDOW_STOP))
-        self.start_button       = self.button(i18n._('start'),   wx.ID_OK,      event_id=int(events.WINDOW_START))
-        self.close_button       = self.button(i18n._("close"),   wx.ID_OK,      event_id=int(events.WINDOW_CLOSE))
-        self.restart_button     = self.button(i18n._('restart'), wx.ID_OK,      event_id=int(events.WINDOW_RESTART))
-        self.edit_button        = self.button(i18n._('edit'),    wx.ID_OK,      event_id=int(events.WINDOW_EDIT))
+        self.cancel_button      = self.button(
+            i18n._('cancel'),  wx.ID_CANCEL,  event_id=int(events.WINDOW_CANCEL))
+        self.stop_button        = self.button(
+            i18n._('stop'),    wx.ID_OK,      event_id=int(events.WINDOW_STOP))
+        self.start_button       = self.button(
+            i18n._('start'),   wx.ID_OK,      event_id=int(events.WINDOW_START))
+        self.close_button       = self.button(
+            i18n._("close"),   wx.ID_OK,      event_id=int(events.WINDOW_CLOSE))
+        self.restart_button     = self.button(
+            i18n._('restart'), wx.ID_OK,      event_id=int(events.WINDOW_RESTART))
+        self.edit_button        = self.button(
+            i18n._('edit'),    wx.ID_OK,      event_id=int(events.WINDOW_EDIT))
 
-        self.running_animation  = wx.animate.GIFAnimationCtrl(self, -1, image_repository.loading_icon)
+        self.running_animation  = wx.animate.GIFAnimationCtrl(
+            self, -1, image_repository.loading_icon)
 
-        self.buttons = [self.cancel_button, self.start_button, self.stop_button, self.close_button, self.restart_button, self.edit_button]
+        self.buttons = [self.cancel_button, self.start_button, self.stop_button,
+            self.close_button, self.restart_button, self.edit_button]
 
     def _init_pages(self):
         def config():
@@ -102,7 +110,8 @@ class AbstractFooter(wx.Panel):
 
         v_sizer.AddStretchSpacer(1)
         v_sizer.Add(h_sizer, 0, wx.ALIGN_CENTER_VERTICAL | wx.EXPAND)
-        v_sizer.Add(self.running_animation, 0, wx.ALIGN_CENTER_VERTICAL | wx.ALIGN_RIGHT | wx.RIGHT, 20)
+        v_sizer.Add(self.running_animation, 0, wx.ALIGN_CENTER_VERTICAL |
+                    wx.ALIGN_RIGHT | wx.RIGHT, 20)
         self.running_animation.Hide()
 
         h_sizer.Add(self.edit_button, 0, wx.ALIGN_RIGHT | wx.RIGHT, 10)

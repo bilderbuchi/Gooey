@@ -20,7 +20,8 @@ def dark_grey(statictext):
 def h0(parent, label):
     text = wx.StaticText(parent, label=label)
     font_size = text.GetFont().GetPointSize()
-    font = wx.Font(font_size * 1.4, *(wx.FONTFAMILY_DEFAULT, wx.FONTWEIGHT_NORMAL, wx.FONTWEIGHT_BOLD, False))
+    font = wx.Font(font_size * 1.4, *(wx.FONTFAMILY_DEFAULT,
+                   wx.FONTWEIGHT_NORMAL, wx.FONTWEIGHT_BOLD, False))
     text.SetFont(font)
     return text
 

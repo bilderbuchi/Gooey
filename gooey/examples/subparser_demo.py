@@ -19,7 +19,8 @@ def main():
                         action='store_true', default=False)
     subs = parser.add_subparsers(help='commands', dest='command')
 
-    curl_parser = subs.add_parser('curl', help='curl is a tool to transfer data from or to a server')
+    curl_parser = subs.add_parser(
+        'curl', help='curl is a tool to transfer data from or to a server')
     curl_parser.add_argument('Path',
                              help='URL to the remote server',
                              type=str, widget='FileChooser')
@@ -39,7 +40,8 @@ def main():
                              help=' resolve names to IPv4 addresses only')
 
     # ########################################################
-    siege_parser = subs.add_parser('siege', help='Siege is an http/https regression testing and benchmarking utility')
+    siege_parser = subs.add_parser(
+        'siege', help='Siege is an http/https regression testing and benchmarking utility')
     siege_parser.add_argument('--get',
                               help='Pull down headers from the server and display HTTP transaction',
                               type=str)
@@ -57,7 +59,8 @@ def main():
                               type=int)
 
     # ########################################################
-    ffmpeg_parser = subs.add_parser('ffmpeg', help='Siege is an http/https regression testing and benchmarking utility')
+    ffmpeg_parser = subs.add_parser(
+        'ffmpeg', help='Siege is an http/https regression testing and benchmarking utility')
     ffmpeg_parser.add_argument('Output',
                                help='Pull down headers from the server and display HTTP transaction',
                                widget='FileSaver', type=argparse.FileType)

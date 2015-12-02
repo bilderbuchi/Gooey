@@ -19,8 +19,10 @@ def main():
     my_cool_parser = GooeyParser(description=desc)
     my_cool_parser.add_argument("Example", help="fill ", widget="FileChooser")   # positional
     verbosity = my_cool_parser.add_mutually_exclusive_group()
-    verbosity.add_argument('-t', '--verbozze', dest='verbose', action="store_true", help="Show more details")
-    verbosity.add_argument('-q', '--quiet', dest='quiet', action="store_true", help="Only output on error")
+    verbosity.add_argument('-t', '--verbozze', dest='verbose',
+                           action="store_true", help="Show more details")
+    verbosity.add_argument('-q', '--quiet', dest='quiet',
+                           action="store_true", help="Only output on error")
     print(my_cool_parser._actions)
     print('inside of main(), my_cool_parser =', my_cool_parser)
 

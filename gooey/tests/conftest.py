@@ -12,8 +12,10 @@ def complete_parser():
     parser = argparse.ArgumentParser(description='description')
     parser.add_argument("req1", help='filename help msg')  # positional
     parser.add_argument("req2", help="Name of the file where you'll save the output")  # positional
-    parser.add_argument('-r',   dest="req3", default=10, type=int, help='sets the time to count down from', required=True)
-    parser.add_argument('--req4', dest="req4", default=10, type=int, help='sets the time to count down from', required=True)
+    parser.add_argument('-r',   dest="req3", default=10, type=int,
+                        help='sets the time to count down from', required=True)
+    parser.add_argument('--req4', dest="req4", default=10, type=int,
+                        help='sets the time to count down from', required=True)
 
     parser.add_argument("-a", "--aa", action="store_true", help="aaa")
     parser.add_argument("-b", "--bb", action="store_true", help="bbb")
@@ -31,7 +33,8 @@ def complete_parser():
 @pytest.fixture
 def subparser():
     parser = argparse.ArgumentParser(description='qidev')
-    parser.add_argument('--verbose', help='be verbose', dest='verbose', action='store_true', default=False)
+    parser.add_argument('--verbose', help='be verbose', dest='verbose',
+                        action='store_true', default=False)
     subs = parser.add_subparsers(help='commands', dest='command')
 
     config_parser = subs.add_parser('config', help='configure defaults for qidev')
@@ -43,9 +46,12 @@ def subparser():
     connect_parser.add_argument('hostname', help='hostname or IP address of the robot', type=str)
 
     # ########################################################
-    install_parser = subs.add_parser('install', help='package and install a project directory on a robot')
-    install_parser.add_argument('path', help='path to the project directory (containing manifest.xml', type=str)
-    install_parser.add_argument('--ip', nargs='*', type=str, dest='ip', help='specify hostname(es)/IP address(es)')
+    install_parser = subs.add_parser(
+        'install', help='package and install a project directory on a robot')
+    install_parser.add_argument(
+        'path', help='path to the project directory (containing manifest.xml', type=str)
+    install_parser.add_argument('--ip', nargs='*', type=str, dest='ip',
+                                help='specify hostname(es)/IP address(es)')
     return parser
 
 

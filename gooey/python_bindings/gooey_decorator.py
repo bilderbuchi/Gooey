@@ -54,11 +54,13 @@ def Gooey(f=None,
                 try:
                     build_spec = json.load(open(load_build_config, "r"))
                 except Exception as e:
-                    print('Exception loading Build Config from {0}: {1}'.format(load_build_config, e))
+                    print('Exception loading Build Config from {0}: {1}'.format(
+                        load_build_config, e))
                     sys.exit(1)
 
             if not build_spec:
-                build_spec = config_generator.create_from_parser(self, source_path, payload_name=payload.__name__, **params)
+                build_spec = config_generator.create_from_parser(
+                    self, source_path, payload_name=payload.__name__, **params)
 
             if dump_build_config:
                 config_path = os.path.join(os.getcwd(), 'gooey_config.json')
