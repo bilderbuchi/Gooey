@@ -30,31 +30,31 @@ parser.add_argument(dest='paths', help='paths to folder(s) with source file(s) [
 '''
 
 def take_imports(code):
-  return takewhile(lambda line: 'import' in line, code)
+    return takewhile(lambda line: 'import' in line, code)
 
 def drop_imports(code):
-  return dropwhile(lambda line: 'import' in line, code)
+    return dropwhile(lambda line: 'import' in line, code)
 
 def split_line(line):
-  # splits an assignment statement into varname and command strings
-  # in: "parser = ArgumentParser(description='Example Argparse Program')"
-  # out: "parser", "ArgumentParser(description='Example Argparse Program"
-  variable, instruction = line.split('=', 1)
-  return variable.strip(), instruction.strip()
+    # splits an assignment statement into varname and command strings
+    # in: "parser = ArgumentParser(description='Example Argparse Program')"
+    # out: "parser", "ArgumentParser(description='Example Argparse Program"
+    variable, instruction = line.split('=', 1)
+    return variable.strip(), instruction.strip()
 
 def update_parser_varname(new_varname, code):
-  # lines = source.split('\n')[1:]
-  lines = [x for x in code if x != '']
+    # lines = source.split('\n')[1:]
+    lines = [x for x in code if x != '']
 
-  argparse_code = dropwhile(lambda line: 'import' in line, lines)
-  old_argparser_varname, _ = split_line(next(argparse_code))
+    argparse_code = dropwhile(lambda line: 'import' in line, lines)
+    old_argparser_varname, _ = split_line(next(argparse_code))
 
-  updated_code = [line.replace(old_argparser_varname, new_varname)
-                  for line in lines]
-  return updated_code
+    updated_code = [line.replace(old_argparser_varname, new_varname)
+                    for line in lines]
+    return updated_code
 
 if __name__ == '__main__':
-  pass
+    pass
 
 
 

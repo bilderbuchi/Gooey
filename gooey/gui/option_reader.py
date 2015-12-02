@@ -10,15 +10,15 @@ from future.utils import with_metaclass
 
 
 class OptionReader(with_metaclass(ABCMeta, object)):
-  '''
-  Mixin for forcing subclasses to
-  honor GetOptions method
-  '''
+    '''
+    Mixin for forcing subclasses to
+    honor GetOptions method
+    '''
 
-  @abstractmethod
-  def GetOptions(self):
-    '''
-    Implemented by subclasses.
-    Defines how the config panel Views retrieve their options
-    '''
-    pass
+    @abstractmethod
+    def GetOptions(self):
+        '''
+        Implemented by subclasses.
+        Defines how the config panel Views retrieve their options
+        '''
+        pass

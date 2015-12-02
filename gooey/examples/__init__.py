@@ -5,7 +5,7 @@ import sys
 import time
 
 program_message = \
-'''
+    '''
 Thanks for checking out out Gooey!
 
 This is a sample message to demonstrate Gooey's functionality.
@@ -28,10 +28,10 @@ See ya!
 '''
 
 def display_message():
-  message = program_message.format('\n-'.join(sys.argv[1:])).split('\n')
-  delay = old_div(1.8, len(message))
+    message = program_message.format('\n-'.join(sys.argv[1:])).split('\n')
+    delay = old_div(1.8, len(message))
 
-  for line in message:
-    print(line)
-    time.sleep(delay)
+    for line in message:
+        print(line)
+        time.sleep(delay)
 

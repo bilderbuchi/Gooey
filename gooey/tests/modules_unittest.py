@@ -1,7 +1,7 @@
 from gooey.python_bindings import modules
 
 module_source = \
-'''
+    '''
 some_var = 1234
 
 def fooey():
